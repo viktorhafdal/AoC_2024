@@ -1,4 +1,4 @@
-namespace AoC.Part1 {
+namespace AoC.Day1 {
 
   public class Day1 {
     private static long[] _ListA;
@@ -6,8 +6,8 @@ namespace AoC.Part1 {
     private static Dictionary<long, int> _Occurences = new();
     private static long _SimilScore { get; set; }
 
-    private static string Input = File.ReadAllText("./input/day1_input.txt");
-    private static string TestInput = File.ReadAllText("./input/day1_test_input.txt");
+    private static string Input = File.ReadAllText("../input/day1_input.txt");
+    private static string TestInput = File.ReadAllText("../input/day1_test_input.txt");
 
     public static void Main(string[] args) {
       // System.Console.WriteLine(Part1(TestInput));
