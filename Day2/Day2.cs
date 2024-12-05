@@ -7,14 +7,14 @@ namespace AoC.Day2 {
     private static string TestInput = File.ReadAllText("../input/day2_test_input.txt");
 
     public static void Main(string[] args) {
-      SplitInput(TestInput);
-      System.Console.WriteLine($"Number of safe reports: {Part1()}.");
-      System.Console.WriteLine($"Number of safe reports: {Part2()}.");
-      // System.Console.WriteLine(Part1());
-      // System.Console.WriteLine(Part2());
+      System.Console.WriteLine($"Number of safe reports: {Part1(TestInput)}.");
+      System.Console.WriteLine($"Number of safe reports: {Part2(TestInput)}.");
+      // System.Console.WriteLine(Part1(Input));
+      // System.Console.WriteLine(Part2(Input));
     }
 
-    private static int Part1() {
+    private static int Part1(string input) {
+      SplitInput(input);
       Dictionary<int, bool> reportStatuses = CheckReports(_reports);
 
       int safeReports = 0;
@@ -27,7 +27,8 @@ namespace AoC.Day2 {
       return safeReports;
     }
 
-    private static string Part2() {
+    private static string Part2(string input) {
+      SplitInput(input);
       Dictionary<int, bool> reportStatuses = CheckPart2Reports();
 
       int safeReports = 0;
