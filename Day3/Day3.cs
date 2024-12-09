@@ -13,22 +13,15 @@ namespace AoC.Day3 {
 
     public static double Part1(string input) {
       List<int> values = new();
-      string pattern = @"mul\(\d+\,\d+\)";
+      string pattern = @"mul\((\d+)\,(\d+)\)";
 
       Match m = Regex.Match(input, pattern);
-
       while (m.Success) {
-        System.Console.WriteLine($"'{m.Value}' found at position '{m.Index}'");
-        string match = m.Value;
-        pattern = @"\d+";
-        Match numbers = Regex.Match(match, pattern);
-
-        while (numbers.Success) {
-          System.Console.WriteLine($"'{numbers.Value}' found at position '{numbers.Index}'");
-          values.Add(Int32.Parse(numbers.Value));
-          numbers = numbers.NextMatch();
+        for (int i = 1; i <= 2; i++) { // i = 11, cause group 0 = 'mul(x,y)', group 1 & 2 are the specific numbers
+          Group g = m.Groups[i];
+          System.Console.WriteLine($"Group {i} = '{g}'");
+          values.Add(Int32.Parse(g.Value));
         }
-
         m = m.NextMatch();
       }
 
